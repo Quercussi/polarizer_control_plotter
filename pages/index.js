@@ -100,9 +100,12 @@ export default function Home() {
   });
 
   return (
-    <div>
-      <div>
-        <p>Target Illuminance: {targetLux}</p>
+    <div className="bg-dark">
+      <div className="illu-container col-6 p-3">
+        <p className="illu-text rounded-0 bg-primary">
+          Target Illuminance: <br></br>
+          {targetLux}🔆
+        </p>
         <input
           type="range"
           min={0}
@@ -113,9 +116,9 @@ export default function Home() {
             console.log("setting target: " + e.target.value);
           }}
         />
-      </div>
-      <div>
+        <br></br>
         <button
+          className="btn btn-primary toggle-btn"
           type="button"
           onClick={(e) => {
             setIsLightOn(!isLightOn);
@@ -126,6 +129,7 @@ export default function Home() {
           Toggle Light
         </button>
       </div>
+
       <br />
       <Line data={dataLine} options={options} ref={lineChart} />
     </div>

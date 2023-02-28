@@ -9,7 +9,6 @@ const broker = "wss://test.mosquitto.org:8081";
 const client = mqtt.connect(broker);
 
 const topicTargetLux = "PoleCont/targetIlluminance";
-const topicLight = "PoleCont/isLightOn";
 const topicData = "PoleCont/data";
 
 var count = 1;
@@ -103,7 +102,6 @@ const servoOptions = {
 export default function Home() {
   Chart.register(...registerables);
   const [targetLux, setTargetLux] = useState(0);
-  const [isLightOn, setIsLightOn] = useState(true);
 
   const lineChart = useRef(null);
   const servoChart = useRef(null);
@@ -140,33 +138,24 @@ export default function Home() {
 
   return (
     <div className="bg-dark">
-      <div className="illu-container col-6 p-3">
-        <p className="illu-text rounded-0 bg-primary">
-          Target Illuminance: <br></br>
-          {targetLux}🔆
-        </p>
-        <input
-          type="range"
-          min={0}
-          max={20000}
-          onChange={(e) => {
-            client.publish(topicTargetLux, e.target.value);
-            setTargetLux(e.target.value);
-            console.log("setting target: " + e.target.value);
-          }}
-        />
-        <br></br>
-        <button
-          className="btn btn-primary toggle-btn"
-          type="button"
-          onClick={(e) => {
-            setIsLightOn(!isLightOn);
-            client.publish(topicLight, isLightOn.toString());
-            console.log("setting light: " + isLightOn.toString());
-          }}
-        >
-          Toggle Light
-        </button>
+      <div class="d-flex justify-content-center flex-wrap">
+        <div className="illu-container col-6 p-3 ">
+          <p className="illu-text rounded-0 bg-primary">
+            Target Illuminance: <br></br>
+            {targetLux}🔆
+          </p>
+          <input
+            className="illu-bar"
+            type="range"
+            min={0}
+            max={20000}
+            onChange={(e) => {
+              client.publish(topicTargetLux, e.target.value);
+              setTargetLux(e.target.value);
+              console.log("setting target: " + e.target.value);
+            }}
+          />
+        </div>
       </div>
       <br />
       <Line data={dataLine} options={lineOptions} ref={lineChart} />

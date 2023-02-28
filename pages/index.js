@@ -89,7 +89,7 @@ const servoOptions = {
   },
   scales: {
     x: { min: 0, max: 1000 },
-    y: { min: 0, max: 90 },
+    y: { min: 0, max: 180 },
   },
   plugins: {
     title: {

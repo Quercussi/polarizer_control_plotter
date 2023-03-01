@@ -62,6 +62,8 @@ const dataAngular = {
 
 const lineOptions = {
   responsive: true,
+  animation: false,
+  normalized: true,
   elements: {
     point: {
       radius: 0,
@@ -69,7 +71,7 @@ const lineOptions = {
   },
   scales: {
     x: { min: 0, max: 1000 },
-    y: { min: 0, max: 10000 },
+    y: { min: 0, max: 20000 },
   },
   plugins: {
     title: {
@@ -82,6 +84,8 @@ const lineOptions = {
 const servoOptions = {
   Title: "Film Argument",
   responsive: true,
+  animation: false,
+  normalized: true,
   elements: {
     point: {
       radius: 0,
@@ -133,7 +137,7 @@ export default function Home() {
       if (chart != null) chart.update();
       const chart2 = servoChart.current;
       if (chart2 != null) chart2.update();
-    }, 5000);
+    }, 500);
   });
 
   return (

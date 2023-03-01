@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import mqtt from "mqtt";
 import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
@@ -101,10 +101,11 @@ export default function Home() {
 
   return (
     <div className="bg-dark">
+      {/* controller */}
       <div className="illu-container col-6 p-3">
         <p className="illu-text rounded-0 bg-primary">
           Target Illuminance: <br></br>
-          {targetLux}🔆
+          {targetLux}💡
         </p>
         <input
           type="range"
@@ -129,6 +130,7 @@ export default function Home() {
           Toggle Light
         </button>
       </div>
+      {/* controller end */}
 
       <br />
       <Line data={dataLine} options={options} ref={lineChart} />

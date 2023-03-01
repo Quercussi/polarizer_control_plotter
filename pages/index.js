@@ -1,7 +1,6 @@
-import styles from "@/styles/Home.module.css";
 import React, { useEffect, useRef, useState } from "react";
 import mqtt from "mqtt";
-import { Doughnut, Line } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
 
 const broker = "wss://test.mosquitto.org:8081";
@@ -11,7 +10,6 @@ const client = mqtt.connect(broker);
 const topicTargetLux = "PoleCont/targetIlluminance";
 const topicData = "PoleCont/data";
 
-var count = 1;
 const labels = Array(1000).fill("");
 const receivedTargetLux = Array(1000).fill(0);
 const result = Array(1000).fill(0);
@@ -143,8 +141,8 @@ export default function Home() {
   return (
     <div className="bg-dark">
       <div class="d-flex justify-content-center flex-wrap">
-        <div className="illu-container col-6 p-3 ">
-          <p className="illu-text rounded-0 bg-primary">
+        <div className="illu-container col-6 p-3 d-flex justify-content-center flex-wrap">
+          <p className="illu-text rounded-0 bg-primary ">
             Target Illuminance: <br></br>
             {targetLux}🔆
           </p>

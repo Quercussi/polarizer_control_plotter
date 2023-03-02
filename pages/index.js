@@ -140,21 +140,21 @@ export default function Home() {
   });
 
   return (
-    <div className="bg-dark">
+    <div className="bg-dark d-flex justify-content-center flex-wrap">
       {/* controller */}
-      <div className="illu-container col-6 p-3 d-flex justify-content-center flex-wrap">
-        <p className="illu-text rounded-0 bg-primary">
+      <div className="illu-container col-6 p-3 bg-dark d-flex justify-content-center flex-wrap">
+        <p className="illu-text rounded-0 bg-primary ">
           Target Illuminance: <br></br>
           {targetLux}💡
         </p>
         <input
           type="range"
+          className="illu-bar"
           min={0}
           max={20000}
           onChange={(e) => {
             client.publish(topicTargetLux, e.target.value);
             setTargetLux(e.target.value);
-            console.log("setting target: " + e.target.value);
           }}
         />
       </div>

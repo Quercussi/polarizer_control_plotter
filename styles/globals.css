@@ -34,7 +34,7 @@ input[type="range"]::-moz-range-thumb {
   border-radius: 3px;
   background: blueviolet;
 
-  cursor:all-scroll;
+  cursor: all-scroll;
 }
 .toggle-btn {
   margin-top: 1rem;
@@ -45,7 +45,5 @@ input[type="range"]::-moz-range-thumb {
   width: 200px;
 }
 .illu-bar {
-  width: 600px;
+  width: 500px;
 }
-
- 

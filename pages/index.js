@@ -1,5 +1,5 @@
 import styles from "@/styles/Home.module.css";
-import React, { useEffect, useRef, useState } from "react";
+import React, { use, useEffect, useRef, useState } from "react";
 import mqtt from "mqtt";
 import { Doughnut, Line } from "react-chartjs-2";
 import { Chart, registerables } from "chart.js";
@@ -142,26 +142,24 @@ export default function Home() {
 
   return (
     <div className="bg-dark">
-      <div class="d-flex justify-content-center flex-wrap">
-        <div className="illu-container col-6 p-3 ">
-          <p className="illu-text rounded-0 bg-primary">
-            Target Illuminance: <br></br>
-            {targetLux}🔆
-          </p>
-          <input
-            className="illu-bar"
-            type="range"
-            min={0}
-            max={20000}
-            onChange={(e) => {
-              client.publish(topicTargetLux, e.target.value);
-              setTargetLux(e.target.value);
-              console.log("setting target: " + e.target.value);
-            }}
-          />
-        </div>
+      {/* controller */}
+      <div className="illu-container col-6 p-3">
+        <p className="illu-text rounded-0 bg-primary">
+          Target Illuminance: <br></br>
+          {targetLux}💡
+        </p>
+        <input
+          type="range"
+          min={0}
+          max={20000}
+          onChange={(e) => {
+            client.publish(topicTargetLux, e.target.value);
+            setTargetLux(e.target.value);
+            console.log("setting target: " + e.target.value);
+          }}
+        />
       </div>
-      <br />
+      {/* controller end */}
       <Line data={dataLine} options={lineOptions} ref={lineChart} />
       <br />
       <Line data={dataAngular} options={servoOptions} ref={servoChart} />

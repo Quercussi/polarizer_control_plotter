@@ -154,7 +154,6 @@ export default function Home() {
             onChange={(e) => {
               client.publish(topicTargetLux, e.target.value);
               setTargetLux(e.target.value);
-              console.log("setting target: " + e.target.value);
             }}
           />
         </div>

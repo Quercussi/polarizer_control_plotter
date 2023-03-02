@@ -1,52 +1,51 @@
-
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-
 html,
 body {
   max-width: 100vw;
   max-height: 100vh;
-  
+
   overflow-x: hidden;
-  color:white;
+  color: white;
 }
 
-.illu-container{
-  outline:solid black;
+.illu-container {
+  outline: solid black;
   display: inline-block;
   margin-top: 1rem;
   margin-left: 1rem;
   text-align: center;
   border-radius: 10px;
-  position:relative;
-  max-width:min-content;
-  padding:1rem;
-  background-color:  	rgb(48,48,48);
+  position: relative;
+  max-width: min-content;
+  padding: 1rem;
+  background-color: rgb(48, 48, 48);
 }
 
-
-input[type=range]::-moz-range-thumb {
+input[type="range"]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   border: 1px solid #000000;
   height: 36px;
   width: 16px;
   border-radius: 3px;
   background: blueviolet;
+
   cursor:all-scroll;
 }
-.toggle-btn{
+.toggle-btn {
   margin-top: 1rem;
 }
-.illu-text{
-  border:solid black 2px;
+.illu-text {
+  border: solid black 2px;
   font-weight: 600;
-  
-
+  width: 200px;
+}
+.illu-bar {
+  width: 200px;
 }
 
  

@@ -33,15 +33,19 @@ input[type="range"]::-moz-range-thumb {
   width: 16px;
   border-radius: 3px;
   background: blueviolet;
-  cursor: crosshair;
+
+  cursor:all-scroll;
 }
 .toggle-btn {
   margin-top: 1rem;
 }
 .illu-text {
   border: solid black 2px;
+  font-weight: 600;
   width: 200px;
 }
 .illu-bar {
   width: 600px;
 }
+
+ 

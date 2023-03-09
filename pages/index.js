@@ -12,10 +12,10 @@ const topicTargetLux = "PoleCont/targetIlluminance";
 const topicData = "PoleCont/data";
 
 const labels = Array(1000).fill("");
-const receivedTargetLux = Array(1000).fill(0);
+const receivedTargetLux = Array(1000).fill(5000);
 const result = Array(1000).fill(0);
-var lowerBound = Array(1000).fill(0);
-var upperBound = Array(1000).fill(0);
+var lowerBound = Array(1000).fill(16000);
+var upperBound = Array(1000).fill(5000);
 const servoAngle = Array(1000).fill(0);
 const dataLine = {
   labels: labels,
@@ -70,7 +70,7 @@ const lineOptions = {
   },
   scales: {
     x: { min: 0, max: 1000 },
-    y: { min: 0, max: 20000 },
+    y: { min: 5000, max: 16000 },
   },
   plugins: {
     title: {
@@ -150,8 +150,8 @@ export default function Home() {
         <input
           type="range"
           className="illu-bar"
-          min={0}
-          max={20000}
+          min={5000}
+          max={16000}
           onChange={(e) => {
             client.publish(topicTargetLux, e.target.value);
             setTargetLux(e.target.value);

@@ -103,7 +103,7 @@ const servoOptions = {
 
 export default function Home() {
   Chart.register(...registerables);
-  const [targetLux, setTargetLux] = useState(0);
+  const [targetLux, setTargetLux] = useState(5000);
 
   const lineChart = useRef(null);
   const servoChart = useRef(null);
@@ -149,6 +149,7 @@ export default function Home() {
         <input
           type="range"
           className="illu-bar"
+          value={targetLux}
           min={5000}
           max={16000}
           onChange={(e) => {

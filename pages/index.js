@@ -1,4 +1,3 @@
-import styles from "@/styles/Home.module.css";
 import React, { use, useEffect, useRef, useState } from "react";
 import mqtt from "mqtt";
 import { Line } from "react-chartjs-2";
